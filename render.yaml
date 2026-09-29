@@ -1,0 +1,5 @@
+services:
+  - name: music-theory-trainer
+    type: web
+    runtime: static
+    staticPublishPath: ./

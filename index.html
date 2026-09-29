@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Music Theory Trainer</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-title" id="app-title">🎶 Music Theory Trainer</div>
+      <div class="header-controls">
+        <div class="lang-switch" id="lang-switch"></div>
+        <div class="volume-control">
+          <span>🔈</span>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.6" />
+          <span>🔊</span>
+        </div>
+      </div>
+    </header>
+    <div class="app-body">
+      <nav id="app-nav" class="app-nav"></nav>
+      <main id="app-main" class="app-main"></main>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/piano.js"></script>
+  <script src="js/staff.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/guitar-data.js"></script>
+  <script src="js/guitar.js"></script>
+  <script src="js/modules/home.js"></script>
+  <script src="js/modules/notes.js"></script>
+  <script src="js/modules/intervals.js"></script>
+  <script src="js/modules/scales.js"></script>
+  <script src="js/modules/chords.js"></script>
+  <script src="js/modules/guitar-chords.js"></script>
+  <script src="js/modules/circle.js"></script>
+  <script src="js/modules/progress.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
