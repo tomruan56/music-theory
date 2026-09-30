@@ -30,7 +30,8 @@
   }
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+button, select, .key, .cf-wedge { touch-action: manipulation; }
 
 html, body {
   margin: 0;
@@ -44,6 +45,7 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
 }
 
 .app-header {
@@ -365,7 +367,7 @@ select, .btn {
 
 /* Circle of fifths */
 .circle-layout { display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start; }
-.circle-svg { width: 340px; height: 340px; }
+.circle-svg { width: 340px; max-width: 100%; height: auto; aspect-ratio: 1; }
 .cf-wedge {
   fill: var(--bg-panel-2);
   stroke: var(--bg);
@@ -447,3 +449,47 @@ select, .btn {
 }
 .progress-bar-fill { height: 100%; background: var(--accent); }
 .progress-meta { font-size: 0.78rem; color: var(--text-dim); }
+
+/* Mobile */
+@media (max-width: 720px) {
+  .app-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px;
+    padding-top: calc(10px + env(safe-area-inset-top));
+  }
+  .app-title { font-size: 1rem; }
+  .header-controls { gap: 12px; }
+  .volume-control input[type="range"] { width: 80px; }
+
+  .app-body { flex-direction: column; }
+  .app-nav {
+    width: 100%;
+    flex-direction: row;
+    gap: 4px;
+    padding: 6px 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .app-nav::-webkit-scrollbar { display: none; }
+  .nav-item { flex-shrink: 0; white-space: nowrap; padding: 10px 12px; }
+
+  .app-main {
+    padding: 16px 14px calc(40px + env(safe-area-inset-bottom));
+  }
+  .control-row { gap: 10px; }
+  .control-row label { flex: 1 1 130px; }
+  select, .btn { padding: 10px 14px; min-height: 42px; font-size: 1rem; }
+  .answer-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  .guitar-grid { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); }
+  .guitar-detail-panel { max-width: none; }
+  .circle-layout { gap: 16px; }
+  .cf-detail-panel { min-width: 0; width: 100%; }
+  .tab-row { overflow-x: auto; }
+  .tab-btn { white-space: nowrap; }
+  .voicing-tab { padding: 8px 12px; }
+}
